@@ -1,8 +1,17 @@
 from django.db import models
 
 
+class Quiz(models.Model):
+    title = models.CharField(max_length=200)
+    description = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.content
+
+
 class Question(models.Model):
     content = models.CharField(max_length=200)
+    quiz = models.ForeignKey(Quiz, on_delete=models.CASCADE, default=1)
 
     def __str__(self):
         return self.content
