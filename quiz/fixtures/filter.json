@@ -1,0 +1,65 @@
+[
+  {
+    "model": "quiz.filter",
+    "pk": 1,
+    "fields": {
+      "content": "full stack engineer"
+    }
+  },
+  {
+    "model": "quiz.filter",
+    "pk": 2,
+    "fields": {
+      "content": "frontend engineer"
+    }
+  },
+  {
+    "model": "quiz.filter",
+    "pk": 3,
+    "fields": {
+      "content": "backend engineer"
+    }
+  },
+  {
+    "model": "quiz.filter",
+    "pk": 4,
+    "fields": {
+      "content": "casual culture"
+    }
+  },
+  {
+    "model": "quiz.filter",
+    "pk": 5,
+    "fields": {
+      "content": "cosmo culture"
+    }
+  },
+  {
+    "model": "quiz.filter",
+    "pk": 6,
+    "fields": {
+      "content": "formal culture"
+    }
+  },
+  {
+    "model": "quiz.filter",
+    "pk": 7,
+    "fields": {
+      "content": "large"
+    }
+  },
+  {
+    "model": "quiz.filter",
+    "pk": 8,
+    "fields": {
+      "content": "medium"
+    }
+  },
+  {
+    "model": "quiz.filter",
+    "pk": 9,
+    "fields": {
+      "content": "small"
+    }
+  }
+]

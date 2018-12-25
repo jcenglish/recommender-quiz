@@ -1,0 +1,83 @@
+[
+  {
+    "model": "quiz.choice",
+    "pk": 1,
+    "fields": {
+      "question": 1,
+      "filter": 1,
+      "content": "foreign language or P.E."
+    }
+  },
+  {
+    "model": "quiz.choice",
+    "pk": 2,
+    "fields": {
+      "question": 1,
+      "filter": 2,
+      "content": "art or writing"
+    }
+  },
+  {
+    "model": "quiz.choice",
+    "pk": 3,
+    "fields": {
+      "question": 1,
+      "filter": 3,
+      "content": "math or biology"
+    }
+  },
+  {
+    "model": "quiz.choice",
+    "pk": 4,
+    "fields": {
+      "question": 2,
+      "filter": 4,
+      "content": "beer"
+    }
+  },
+  {
+    "model": "quiz.choice",
+    "pk": 5,
+    "fields": {
+      "question": 2,
+      "filter": 5,
+      "content": "coffee"
+    }
+  },
+  {
+    "model": "quiz.choice",
+    "pk": 6,
+    "fields": {
+      "question": 2,
+      "filter": 6,
+      "content": "water"
+    }
+  },
+  {
+    "model": "quiz.choice",
+    "pk": 7,
+    "fields": {
+      "question": 1,
+      "filter": 7,
+      "content": "buffalo"
+    }
+  },
+  {
+    "model": "quiz.choice",
+    "pk": 8,
+    "fields": {
+      "question": 1,
+      "filter": 8,
+      "content": "elephant"
+    }
+  },
+  {
+    "model": "quiz.choice",
+    "pk": 9,
+    "fields": {
+      "question": 1,
+      "filter": 9,
+      "content": "wolf"
+    }
+  }
+]

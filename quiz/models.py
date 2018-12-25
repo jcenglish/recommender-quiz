@@ -17,13 +17,13 @@ class Question(models.Model):
         return self.content
 
 
-class Role(models.Model):
-    content = models.CharField(max_length=200)
+class Filter(models.Model):
+    description = models.CharField(max_length=200)
 
 
 class Choice(models.Model):
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
-    role = models.ForeignKey(Role, on_delete=models.CASCADE)
+    filter = models.ForeignKey(Filter, on_delete=models.CASCADE)
     content = models.CharField(max_length=200)
 
     def __str__(self):
@@ -55,7 +55,6 @@ class Job(models.Model):
     title = models.CharField(max_length=200)
     description = models.CharField(max_length=200)
     salary = models.IntegerField()
-    wage = models.IntegerField()
     date_published = models.DateTimeField('date published')
 
     def __str__(self):
