@@ -1,28 +1,28 @@
-from django.contrib.auth.models import User, Group
-from .models import Quiz
-from rest_framework import viewsets
-from .serializers import UserSerializer, GroupSerializer, QuizSerializer
+# from django.contrib.auth.models import User, Group
+# from .models import Quiz
+# from rest_framework import viewsets
+# from .serializers import UserSerializer, GroupSerializer, QuizSerializer
 
 
-class QuizViewSet(viewsets.ModelViewSet):
-    """
-    API endpoint that allows quiz to be viewed or edited.
-    """
-    queryset = Quiz.objects.all()
-    serializer_class = QuizSerializer
+# class QuizViewSet(viewsets.ModelViewSet):
+#     """
+#     API endpoint that allows quiz to be viewed or edited.
+#     """
+#     queryset = Quiz.objects.all()
+#     serializer_class = QuizSerializer
 
 
-class UserViewSet(viewsets.ModelViewSet):
-    """
-    API endpoint that allows users to be viewed or edited.
-    """
-    queryset = User.objects.all().order_by('-date_joined')
-    serializer_class = UserSerializer
+# class UserViewSet(viewsets.ModelViewSet):
+#     """
+#     API endpoint that allows users to be viewed or edited.
+#     """
+#     queryset = User.objects.all().order_by('-date_joined')
+#     serializer_class = UserSerializer
 
 
-class GroupViewSet(viewsets.ModelViewSet):
-    """
-    API endpoint that allows groups to be viewed or edited.
-    """
-    queryset = Group.objects.all()
-    serializer_class = GroupSerializer
+# class GroupViewSet(viewsets.ModelViewSet):
+#     """
+#     API endpoint that allows groups to be viewed or edited.
+#     """
+#     queryset = Group.objects.all()
+#     serializer_class = GroupSerializer

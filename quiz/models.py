@@ -1,9 +1,21 @@
+import datetime
 from django.db import models
+from django.contrib.auth.models import User
+from django.utils import timezone
 
 
 class Quiz(models.Model):
-    title = models.CharField(max_length=200)
+    class Meta:
+        verbose_name_plural = "quizzes"
+    name = models.CharField(max_length=200)
     description = models.CharField(max_length=200)
+    author = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
+    date_published = models.DateTimeField('date published')
+    date_modified = models.DateTimeField('date modified')
+    date_created = models.DateTimeField('date created')
+
+    def published_recently(self):
+        return self.date_published >= timezone.now() - datetime.timedelta(days=1)
 
     def __str__(self):
         return self.content
@@ -11,51 +23,39 @@ class Quiz(models.Model):
 
 class Question(models.Model):
     content = models.CharField(max_length=200)
-    quiz = models.ForeignKey(Quiz, on_delete=models.CASCADE, default=1)
+    quiz = models.ForeignKey(Quiz, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.content
 
 
-class Filter(models.Model):
+class Association(models.Model):
+    name = models.CharField(max_length=200)
     description = models.CharField(max_length=200)
 
 
 class Choice(models.Model):
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
-    filter = models.ForeignKey(Filter, on_delete=models.CASCADE)
+    association = models.ForeignKey(Association, on_delete=models.CASCADE)
     content = models.CharField(max_length=200)
 
     def __str__(self):
         return self.content
 
 
-class CompanyCulture(models.Model):
-    kind = models.CharField(max_length=200)
-    description = models.CharField(max_length=200)
-
-    def __str__(self):
-        return self.kind
-
-
-class Company(models.Model):
+class Product(models.Model):
     name = models.CharField(max_length=200)
     description = models.CharField(max_length=200)
-    size = models.IntegerField()
-    culture = models.ForeignKey(CompanyCulture, on_delete=models.CASCADE)
-
-    def __str__(self):
-        return self.name
-
-
-class Job(models.Model):
-    question = models.ForeignKey(Question, on_delete=models.CASCADE)
-    company = models.ForeignKey(Company, on_delete=models.CASCADE)
-    role = models.ForeignKey(Role, on_delete=models.CASCADE)
-    title = models.CharField(max_length=200)
-    description = models.CharField(max_length=200)
-    salary = models.IntegerField()
+    association = models.ForeignKey(Association, on_delete=models.CASCADE)
     date_published = models.DateTimeField('date published')
+    date_modified = models.DateTimeField('date modified')
+    date_created = models.DateTimeField('date created')
 
-    def __str__(self):
-        return self.title
+
+class QuizResult(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
+    choice = models.ForeignKey(Choice, on_delete=models.CASCADE, default=1)
+    date_created = models.DateTimeField('date created')
+    # get quiz through choice through question
+    # get question through choice
+    # get association through choice
