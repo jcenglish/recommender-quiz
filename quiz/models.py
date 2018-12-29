@@ -1,5 +1,6 @@
 import datetime
 from django.db import models
+from django.conf import settings
 from django.contrib.auth.models import User
 from django.utils import timezone
 
@@ -9,7 +10,10 @@ class Quiz(models.Model):
         verbose_name_plural = "quizzes"
     name = models.CharField(max_length=200)
     description = models.CharField(max_length=200)
-    author = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
+    owner = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+    )
     date_published = models.DateTimeField('date published')
     date_modified = models.DateTimeField('date modified')
     date_created = models.DateTimeField('date created')
@@ -53,7 +57,10 @@ class Product(models.Model):
 
 
 class QuizResult(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
+    owner = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+    )
     choice = models.ForeignKey(Choice, on_delete=models.CASCADE, default=1)
     date_created = models.DateTimeField('date created')
     # get quiz through choice through question

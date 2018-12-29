@@ -1,28 +1,31 @@
-# from django.contrib.auth.models import User, Group
-# from .models import Quiz
-# from rest_framework import viewsets
-# from .serializers import UserSerializer, GroupSerializer, QuizSerializer
+from django.contrib.auth.models import User
+from .models import Quiz
+from .serializers import UserSerializer, QuizSerializer
+from .permissions import IsOwnerOrReadOnly
+from rest_framework import generics, permissions
 
 
-# class QuizViewSet(viewsets.ModelViewSet):
-#     """
-#     API endpoint that allows quiz to be viewed or edited.
-#     """
-#     queryset = Quiz.objects.all()
-#     serializer_class = QuizSerializer
+class UserList(generics.ListAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
 
 
-# class UserViewSet(viewsets.ModelViewSet):
-#     """
-#     API endpoint that allows users to be viewed or edited.
-#     """
-#     queryset = User.objects.all().order_by('-date_joined')
-#     serializer_class = UserSerializer
+class UserDetail(generics.RetrieveAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
 
 
-# class GroupViewSet(viewsets.ModelViewSet):
-#     """
-#     API endpoint that allows groups to be viewed or edited.
-#     """
-#     queryset = Group.objects.all()
-#     serializer_class = GroupSerializer
+class QuizList(generics.ListCreateAPIView):  # TODO: Should be ListAPIView?
+    queryset = Quiz.objects.all()
+    serializer_class = QuizSerializer
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+
+    def perform_create(self, serializer):
+        serializer.save(owner=self.request.user)
+
+
+class QuizDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Quiz.objects.all()
+    serializer_class = QuizSerializer
+    permission_classes = (
+        permissions.IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly,)
