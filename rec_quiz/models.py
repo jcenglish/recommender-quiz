@@ -34,7 +34,7 @@ class Question(models.Model):
 
 
 class Association(models.Model):
-    name = models.CharField(max_length=200)
+    title = models.CharField(max_length=200)
     description = models.CharField(max_length=200)
 
     def __str__(self):
@@ -51,7 +51,7 @@ class Choice(models.Model):
 
 
 class Product(models.Model):
-    name = models.CharField(max_length=200)
+    title = models.CharField(max_length=200)
     description = models.CharField(max_length=200)
     association = models.ForeignKey(Association, on_delete=models.CASCADE)
     date_published = models.DateTimeField('date published')
