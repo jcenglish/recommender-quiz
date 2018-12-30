@@ -1,6 +1,6 @@
 [
   {
-    "model": "quiz.question",
+    "model": "rec_quiz.question",
     "pk": 1,
     "fields": {
       "content": "What's your favorite school subject?",
@@ -8,7 +8,7 @@
     }
   },
   {
-    "model": "quiz.question",
+    "model": "rec_quiz.question",
     "pk": 2,
     "fields": {
       "content": "Which beverage do you prefer?",
@@ -16,7 +16,7 @@
     }
   },
   {
-    "model": "quiz.question",
+    "model": "rec_quiz.question",
     "pk": 3,
     "fields": {
       "content": "Which animal do you identify with most?",

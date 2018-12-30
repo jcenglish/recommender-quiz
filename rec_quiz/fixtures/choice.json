@@ -1,82 +1,82 @@
 [
   {
-    "model": "quiz.choice",
+    "model": "rec_quiz.choice",
     "pk": 1,
     "fields": {
       "question": 1,
-      "filter": 1,
+      "association": 1,
       "content": "foreign language or P.E."
     }
   },
   {
-    "model": "quiz.choice",
+    "model": "rec_quiz.choice",
     "pk": 2,
     "fields": {
       "question": 1,
-      "filter": 2,
+      "association": 2,
       "content": "art or writing"
     }
   },
   {
-    "model": "quiz.choice",
+    "model": "rec_quiz.choice",
     "pk": 3,
     "fields": {
       "question": 1,
-      "filter": 3,
+      "association": 3,
       "content": "math or biology"
     }
   },
   {
-    "model": "quiz.choice",
+    "model": "rec_quiz.choice",
     "pk": 4,
     "fields": {
       "question": 2,
-      "filter": 4,
+      "association": 3,
       "content": "beer"
     }
   },
   {
-    "model": "quiz.choice",
+    "model": "rec_quiz.choice",
     "pk": 5,
     "fields": {
       "question": 2,
-      "filter": 5,
+      "association": 2,
       "content": "coffee"
     }
   },
   {
-    "model": "quiz.choice",
+    "model": "rec_quiz.choice",
     "pk": 6,
     "fields": {
       "question": 2,
-      "filter": 6,
+      "association": 1,
       "content": "water"
     }
   },
   {
-    "model": "quiz.choice",
+    "model": "rec_quiz.choice",
     "pk": 7,
     "fields": {
       "question": 1,
-      "filter": 7,
+      "association": 2,
       "content": "buffalo"
     }
   },
   {
-    "model": "quiz.choice",
+    "model": "rec_quiz.choice",
     "pk": 8,
     "fields": {
       "question": 1,
-      "filter": 8,
+      "association": 3,
       "content": "elephant"
     }
   },
   {
-    "model": "quiz.choice",
+    "model": "rec_quiz.choice",
     "pk": 9,
     "fields": {
       "question": 1,
-      "filter": 9,
+      "association": 1,
       "content": "wolf"
     }
   }

@@ -1,17 +1,17 @@
 import datetime
 from django.db import models
 from django.conf import settings
-from django.contrib.auth.models import User
+# from django.contrib.auth.models import User
 from django.utils import timezone
 
 
 class Quiz(models.Model):
     class Meta:
         verbose_name_plural = "quizzes"
-    name = models.CharField(max_length=200)
+    title = models.CharField(max_length=200)
     description = models.CharField(max_length=200)
     owner = models.ForeignKey(
-        settings.AUTH_USER_MODEL,
+        'auth.User', related_name='quizzes',
         on_delete=models.CASCADE,
     )
     date_published = models.DateTimeField('date published')
@@ -22,7 +22,7 @@ class Quiz(models.Model):
         return self.date_published >= timezone.now() - datetime.timedelta(days=1)
 
     def __str__(self):
-        return self.content
+        return self.name
 
 
 class Question(models.Model):
@@ -36,6 +36,9 @@ class Question(models.Model):
 class Association(models.Model):
     name = models.CharField(max_length=200)
     description = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.name
 
 
 class Choice(models.Model):
@@ -54,6 +57,9 @@ class Product(models.Model):
     date_published = models.DateTimeField('date published')
     date_modified = models.DateTimeField('date modified')
     date_created = models.DateTimeField('date created')
+
+    def __str__(self):
+        return self.name
 
 
 class QuizResult(models.Model):

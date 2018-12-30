@@ -1,0 +1,26 @@
+[
+  {
+    "model": "rec_quiz.association",
+    "pk": 1,
+    "fields": {
+      "name": "test assoc 1",
+      "description": "test assoc 1 desc"
+    }
+  },
+  {
+    "model": "rec_quiz.association",
+    "pk": 2,
+    "fields": {
+      "name": "test assoc 2",
+      "description": "test assoc 2 desc"
+    }
+  },
+  {
+    "model": "rec_quiz.association",
+    "pk": 3,
+    "fields": {
+      "name": "test assoc 3",
+      "description": "test assoc 3 desc"
+    }
+  }
+]
