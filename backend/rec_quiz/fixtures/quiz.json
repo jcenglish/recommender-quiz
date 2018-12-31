@@ -1,0 +1,12 @@
+[
+  {
+    "model": "rec_quiz.quiz",
+    "pk": 1,
+    "fields": {
+      "title": "What kind of programmer are you?",
+      "description": "What's your niche?",
+      "owner": 1,
+      "date_created": "2018-12-30T04:33:26.640Z"
+    }
+  }
+]
