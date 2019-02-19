@@ -25,6 +25,6 @@ Here's a data model diagram!
 
 ## Commentary
 
-I don't think Django is actually a good backend solution for this app. I'm only using half of what Django does, when there are smaller single-purpose packages that do what I need - in this case, an API, authentication and data modeling. I like the ease of which I could use those features, but using Django is a bit overkill.
+I don't think Django is actually a good backend solution for this app. I'm only using half of what Django does, when there are smaller single-purpose packages that do what I need - in this case, an API, authentication and data modeling. I like the ease of which I could use those features, but using Django is a bit overkill. React is bit overkill as well. I would prefer lighter frameworks to manage state and views, each separately.
 
 I'm a firm believer in cohesion, decoupling and modularizing as much as possible. Building something with both Django and React in accordance with my coding philosophy is really testing my faith.
